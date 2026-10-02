@@ -639,6 +639,12 @@ display: flex;
     margin-bottom: 12px;
   }
 
+  .exp-org a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+  }
+
   .exp-desc {
     color: #4a4540;
     max-width: 580px;
@@ -728,6 +734,38 @@ display: flex;
     color: rgba(255,255,255,0.7);
   }
 
+  /* Keep flagship tag pills above the video/overlay on hover */
+  .project:hover .project-video.has-src ~ .project-tags {
+    position: relative;
+    z-index: 3;
+  }
+
+  /* Card links: inherit the card's text color, stay clickable above the video */
+  .project-name a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .project-name a:hover { color: var(--accent); }
+
+  .project-links {
+    position: relative;
+    z-index: 3;
+    margin-top: 18px;
+  }
+
+  .project-links a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+  }
+
+  .project:hover .project-video.has-src ~ .project-links a { color: #ffffff; }
+
   /* Placeholder state when no video src */
   .project-video-placeholder {
     position: absolute;
@@ -798,6 +836,44 @@ display: flex;
     letter-spacing: 2px;
     color: var(--accent);
     opacity: 0.5;
+  }
+
+  /* ─── Flagship project (full-width hero card) ─── */
+  .project-flagship {
+    padding: 40px 44px 48px;
+  }
+
+  .project-flagship::after {
+    content: 'FLAGSHIP';
+  }
+
+  .project-flagship .project-name {
+    font-size: 28px;
+  }
+
+  .project-flagship .project-stack {
+    margin-bottom: 14px;
+  }
+
+  .project-flagship .project-desc {
+    max-width: 760px;
+    font-size: 16px;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .project-tags .exp-highlight {
+    margin-top: 0;
+    margin-right: 0;
+  }
+
+  @media (max-width: 768px) {
+    .project-flagship { padding: 32px 24px 40px; }
   }
 
   /* ─── WHAT I BELIEVE ─── */
@@ -881,6 +957,14 @@ display: flex;
   }
 
   .footer-links a:hover { color: var(--accent); }
+
+  .footer-telemetry a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+  }
+
+  .footer-telemetry a:hover { color: var(--accent); }
 
   .colophon {
     margin-top: 48px;
@@ -1047,7 +1131,7 @@ display: flex;
 <!-- ─── HERO ─── -->
 <div class="container">
   <section class="hero">
-    <div class="hero-label">Operations · Strategy · Team Development</div>
+    <div class="hero-label">Operations · Engineering · Team Development</div>
     <h1 class="hero-name" id="heroName">
       <!-- Sumi-e brush stroke background -->
       <svg class="brush-stroke" viewBox="0 0 800 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -1104,7 +1188,7 @@ display: flex;
       <div class="resume-sub">AI-Augmented Operations Leader  |  Generalist Operator  |  Systems Thinker</div>
       <div class="resume-contact">New York City Metro  |  linkedin.com/in/shaker-zaman-a8656416b  |  github.com/ShakerZed</div>
       <div class="resume-actions">
-        <a class="resume-action" href="Shaker_Zaman_Resume.docx" download>Download DOCX</a>
+        <a class="resume-action" href="Shaker_Zaman_Resume_Updated.docx" download="Shaker_Zaman_Resume.docx">Download DOCX</a>
         <button class="resume-action" type="button" id="resumeClose">Back</button>
       </div>
     </div>
@@ -1117,6 +1201,17 @@ display: flex;
     <section class="resume-section">
       <div class="resume-h">Experience</div>
       
+      <div class="resume-role">
+        <div class="resume-role-head">
+          <div class="resume-role-title">Founder &amp; Engineer</div>
+          <div class="resume-role-meta">Magi Vision Apr 2026 - Present</div>
+        </div>
+        <ul class="resume-bullets"><li>Building a video analysis platform for grappling, connecting mat-side capture, pose estimation, and coach-facing review.</li>
+<li>Built the recording and analysis pipeline, operator tools, and annotation workflows that turn training footage into traceable evaluation data.</li>
+<li>Separated recording from inference to protect footage under load, and built versioned annotation packs and evaluation workflows to test model changes against reviewed evidence.</li>
+<li>Lead engineering and operations alongside a design and sports-domain team, using gym capture sessions to guide product development and test what the system can reliably explain.</li></ul>
+      </div>
+
       <div class="resume-role">
         <div class="resume-role-head">
           <div class="resume-role-title">Head of Operations</div>
@@ -1168,7 +1263,7 @@ display: flex;
 
     <section class="resume-section">
       <div class="resume-h">Technical Projects</div>
-      <ul class="resume-bullets"><li><strong>MTA Widget:</strong> WPF desktop app for real-time 5 Train and BxM10 arrivals via MTA APIs.</li><li><strong>Real-Time Multiplayer Typing Game:</strong> Browser-based two-player typing game expanded into a persistent Three.js quail garden/life-sim with synchronized rooms, resilient Socket.IO flow, interactive visitors, fireworks, and zone-focused park navigation.</li><li><strong>3D Injury Recovery Timeline:</strong> Interactive React/Three.js visualization mapping recovery milestones against training readiness.</li><li><strong>Private Equity Research Workflow:</strong> AI-augmented analysis pipeline with automated financial data extraction, competitive mapping, and thesis generation.</li></ul>
+      <ul class="resume-bullets"><li><strong>MTA Widget:</strong> WPF desktop app for real-time 5 Train and BxM10 arrivals via MTA APIs.</li><li><strong>Real-Time Multiplayer Typing Game:</strong> Browser-based two-player typing game expanded into a persistent Three.js quail garden/life-sim with synchronized rooms, resilient Socket.IO flow, interactive visitors, fireworks, and zone-focused park navigation.</li><li><strong>3D Injury Recovery Timeline:</strong> Interactive React/Three.js visualization mapping recovery milestones against training readiness.</li><li><strong>Private Equity Research Workflow:</strong> Investment-research pipeline built on a multi-agent orchestrator &mdash; research agents fan out in parallel, each running in its own isolated environment, to extract financial data, map the competitive landscape, and draft an investment thesis, converging into a single structured deep-dive.</li></ul>
     </section>
 
     <section class="resume-section">
@@ -1179,7 +1274,7 @@ display: flex;
 
     <section class="resume-section">
       <div class="resume-h">Tools & Technologies</div>
-      <p>AI/LLM: Claude Code/GPT Codex, proprietary multi-agent orchestrators, Morph Cloud (Agentic Cloud)  |  Engineering: React, Python, JS/TS, Three.js, WPF, REST APIs, MediaPipe  |  Operations: Vanta, Stripe, SendGrid, NanoMDM, Notion, Obsidian, Git  |  Marketing: Influencer partnerships, email campaigns, product positioning, developer advocacy</p>
+      <p>AI/LLM: Claude Code/GPT Codex, proprietary multi-agent orchestrators, Morph Cloud (Agentic Cloud)  |  Engineering: React, Python, JS/TS, Three.js, WPF, REST APIs, MediaPipe, OpenCV, YOLOv8-Pose/PyTorch, scikit-learn  |  Operations: Vanta, Stripe, SendGrid, NanoMDM, Notion, Obsidian, Git  |  Marketing: Influencer partnerships, email campaigns, product positioning, developer advocacy</p>
     </section>
   </div>
   </div>
@@ -1190,6 +1285,20 @@ display: flex;
 <div class="container" id="experience">
   <section class="section">
     <div class="section-label reveal">Experience</div>
+
+    <div class="exp-item reveal">
+      <div class="exp-date reveal-date">2026 – Present</div>
+      <div>
+        <div class="exp-title reveal-title">Founder &amp; Engineer</div>
+        <div class="exp-org"><a href="https://magivision.io" target="_blank" rel="noopener">Magi Vision</a> · Computer Vision for Combat Sports</div>
+        <div class="exp-desc reveal-body">
+          Building a video analysis platform for grappling, connecting mat-side capture, pose estimation, and coach-facing review. Built the recording and analysis pipeline, operator tools, and annotation workflows that turn training footage into traceable evaluation data. Lead engineering and operations alongside a design and sports-domain team, using gym capture sessions to guide product development and test what the system can reliably explain.
+        </div>
+        <span class="exp-highlight">Computer vision</span>
+        <span class="exp-highlight">Annotation &amp; evaluation</span>
+        <span class="exp-highlight">Gym field testing</span>
+      </div>
+    </div>
 
     <div class="exp-item reveal">
       <div class="exp-date reveal-date">2025 – 2026</div>
@@ -1351,6 +1460,21 @@ display: flex;
   <section class="section">
     <div class="section-label reveal">Selected Projects</div>
 
+    <!-- Full-width flagship -->
+    <div style="margin-bottom: 32px;">
+      <div class="project project-featured project-flagship reveal" data-video="MagiVisionDemo.mp4">
+        <video class="project-video" muted loop playsinline></video>
+        <div class="project-video-overlay"></div>
+        <span class="project-video-placeholder show">demo on hover</span>
+        <div class="project-name"><a href="https://magivision.io" target="_blank" rel="noopener">Magi Vision — Mat-Side Video Analysis</a></div>
+        <div class="project-stack">Python · OpenCV · YOLO · Annotation &amp; Evaluation</div>
+        <div class="project-desc">Built a pipeline connecting live gym capture, pose estimation, candidate clip generation, human review, and coach-facing playback. Separated recording from inference to protect footage under load, and built versioned annotation packs and evaluation workflows to test model changes against reviewed evidence.</div>
+        <div class="project-links">
+          <a href="https://magivision.io/#demo" target="_blank" rel="noopener">Watch demo ↗</a>
+        </div>
+      </div>
+    </div>
+
     <div class="project-row" style="margin-bottom: 32px;">
       <div class="project project-featured reveal" data-video="MTAWidget.mp4">
         <video class="project-video" muted loop playsinline></video>
@@ -1379,13 +1503,10 @@ display: flex;
         <div class="project-stack">React · Three.js · Vercel</div>
         <div class="project-desc">Interactive React/Three.js visualization mapping recovery milestones against training readiness. Pain encoded as altitude, time as orbital path, with raycasting interaction.</div>
       </div>
-      <div class="project reveal" data-video="">
-        <video class="project-video" muted loop playsinline></video>
-        <div class="project-video-overlay"></div>
-        <span class="project-video-placeholder show">demo on hover</span>
+      <div class="project reveal">
         <div class="project-name">Private Equity Research Workflow</div>
-        <div class="project-stack">AI-Augmented Analysis Pipeline</div>
-        <div class="project-desc">AI-augmented analysis pipeline with automated financial data extraction, competitive mapping, and thesis generation. Built to compress deep-dive research into structured, actionable outputs.</div>
+        <div class="project-stack">Multi-Agent Orchestration · Parallel Fan-out</div>
+        <div class="project-desc">An investment-research pipeline built on a multi-agent orchestrator: research agents fan out in parallel — each running in its own isolated environment — to extract financial data, map the competitive landscape, and draft an investment thesis, then converge into a single structured deep-dive. Turns a multi-day analyst workflow into one orchestrated run.</div>
       </div>
     </div>
   </section>
@@ -1406,6 +1527,10 @@ display: flex;
         <span class="exp-highlight">Three.js</span>
         <span class="exp-highlight">WPF/C#</span>
         <span class="exp-highlight">REST APIs</span>
+        <span class="exp-highlight">OpenCV</span>
+        <span class="exp-highlight">YOLOv8-Pose</span>
+        <span class="exp-highlight">PyTorch</span>
+        <span class="exp-highlight">scikit-learn</span>
         <span class="exp-highlight">MediaPipe</span>
         <span class="exp-highlight">Vanta</span>
         <span class="exp-highlight">Stripe</span>
@@ -1443,7 +1568,7 @@ display: flex;
   <footer class="site-footer">
     <div class="footer-name">Shaker Zaman</div>
     <div class="footer-status"><span class="dot"></span>Open to opportunities · NYC 🗽</div>
-    <div class="footer-telemetry">Currently: building community • NYC</div>
+    <div class="footer-telemetry">Currently: <a href="https://magivision.io" target="_blank" rel="noopener">building Magi Vision</a></div>
     <div class="footer-links">
       <a href="https://github.com/ShakerZed">GitHub</a>
       <a href="https://linkedin.com/in/shaker-zaman-a8656416b">LinkedIn</a>
